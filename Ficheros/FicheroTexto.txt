@@ -1,0 +1,9 @@
+Esto es una prueba con FileWriter*Esto es una prueba con FileWriter
+ Esto es todo amigos!!!
+
+
+Albacete
+Cuenca
+Guadalajara
+Ciudad Real
+Toledo

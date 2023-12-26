@@ -1,0 +1,10 @@
+Mi numero de fila: 0
+Mi numero de fila: 1
+Mi numero de fila: 2
+Mi numero de fila: 3
+Mi numero de fila: 4
+Mi numero de fila: 5
+Mi numero de fila: 6
+Mi numero de fila: 7
+Mi numero de fila: 8
+Mi numero de fila: 9
