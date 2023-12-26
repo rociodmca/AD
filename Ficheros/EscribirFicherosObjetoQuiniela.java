@@ -4,7 +4,7 @@ import java.util.Random;
 public class EscribirFicherosObjetoQuiniela {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Quiniela quiniela;
-        File fichero = new File(".//Ficheros//FicheroQuiniela.dat");
+        File fichero = new File(".\\Ficheros\\FicheroQuiniela.dat");
         FileOutputStream fileOut = new FileOutputStream(fichero);
         ObjectOutputStream datasalida = new ObjectOutputStream(fileOut);
 
@@ -23,7 +23,7 @@ public class EscribirFicherosObjetoQuiniela {
                 else flag = true;
             } while (flag);
             quiniela = new Quiniela(equipos[i], equipos[indice], resultados[rnd.nextInt(resultados.length)]);
-            System.out.println(quiniela.toString());
+            datasalida.writeObject(quiniela);
         }
 
         datasalida.close();
