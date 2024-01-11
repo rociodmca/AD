@@ -45,7 +45,6 @@ public class EscribirFichTexto {
             }
             ficherete.close();
         } catch (Exception e) {
-            // TODO: handle exception
         }
     }
     
