@@ -6,8 +6,6 @@ import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Result;
-import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
@@ -15,6 +13,7 @@ import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.w3c.dom.Attr;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -57,6 +56,9 @@ public class CrearyLeerDOMconcesionario {
         for (int i = 0; i < listaCoches.size(); i++) {
             Element itemNode = document.createElement("COCHE");
             // Marca
+            Attr attr = document.createAttribute("id");
+            attr.setValue(Integer.toString(i+1));
+            itemNode.setAttributeNodeNS(attr);
             Element marcaNode = document.createElement("MARCA");
             Text nodeMarcaValue = document.createTextNode("" + listaCoches.get(i).getMarca());
             marcaNode.appendChild(nodeMarcaValue); // le pegamos el valor
@@ -87,10 +89,10 @@ public class CrearyLeerDOMconcesionario {
         }
 
         // Generar el XML
-        Source source = new DOMSource(document);
+        DOMSource source = new DOMSource(document);
 
         // Donde lo guardamos ??
-        Result result = new StreamResult(new java.io.File(nomArchivo + ".xml"));
+        StreamResult result = new StreamResult(new java.io.File(nomArchivo + ".xml"));
         Transformer transformer = TransformerFactory.newInstance().newTransformer();
         transformer.transform(source, result);
     }
@@ -116,10 +118,11 @@ public class CrearyLeerDOMconcesionario {
             System.out.println("Elemento: " + nodo.getNodeName());
             if (nodo.getNodeType() == Node.ELEMENT_NODE) {
                 Element element = (Element) nodo;
-                System.out.println("Marca: " + element.getElementsByTagName("MARCA").item(0).getTextContent());
-                System.out.println("Modelo: " + element.getElementsByTagName("MODELO").item(0).getTextContent());
-                System.out.println("Color: " + element.getElementsByTagName("COLOR").item(0).getTextContent());
-                System.out.println("Matricula: " + element.getElementsByTagName("MATRICULA").item(0).getTextContent());
+                System.out.println("\tCoche Id: " + element.getAttribute("id"));
+                System.out.println("\tMarca: " + element.getElementsByTagName("MARCA").item(0).getTextContent());
+                System.out.println("\tModelo: " + element.getElementsByTagName("MODELO").item(0).getTextContent());
+                System.out.println("\tColor: " + element.getElementsByTagName("COLOR").item(0).getTextContent());
+                System.out.println("\tMatricula: " + element.getElementsByTagName("MATRICULA").item(0).getTextContent());
 
                 System.out.println(" ");
             }
