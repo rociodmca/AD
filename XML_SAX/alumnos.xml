@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clase>
+    <estudiante numatricula="1">
+        <nombre>Judas</nombre>
+        <apellidos>Iscariote</apellidos>
+        <nota>3</nota>
+    </estudiante>
+    <estudiante numatricula="2">
+        <nombre>Aitor</nombre>
+        <apellidos>Menta</apellidos>
+        <nota>5</nota>
+    </estudiante>
+    <estudiante numatricula="3">
+        <nombre>Flor</nombre>
+        <apellidos>de Loto</apellidos>
+        <nota>7</nota>
+    </estudiante>
+</clase>

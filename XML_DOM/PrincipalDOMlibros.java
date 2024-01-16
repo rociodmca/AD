@@ -142,20 +142,20 @@ public class PrincipalDOMlibros {
                 Node nNode = nList.item(i);
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) nNode;
-                    System.out.println("\n Annio: " + eElement.getAttribute("annio"));
-                    System.out.println("\n Titulo: " + eElement.getElementsByTagName("titulo").item(0).getTextContent());
+                    System.out.println("\t Annio: " + eElement.getAttribute("annio"));
+                    System.out.println("\t Titulo: " + eElement.getElementsByTagName("titulo").item(0).getTextContent());
                     NodeList autor = eElement.getElementsByTagName("autor");
                     Node nAutor = autor.item(0);
                     if (nAutor.getNodeType() == Node.ELEMENT_NODE) {
                         Element eElement2 = (Element) nAutor;
                         System.out.println(
-                                "\n Apellidos: " + eElement2.getElementsByTagName("apellido").item(0).getTextContent());
+                                "\t Apellidos: " + eElement2.getElementsByTagName("apellido").item(0).getTextContent());
                         System.out.println(
-                                "\n Nombre: " + eElement2.getElementsByTagName("nombre").item(0).getTextContent());
+                                "\t Nombre: " + eElement2.getElementsByTagName("nombre").item(0).getTextContent());
                     }
-                    System.out.println("\n Editorial: "
+                    System.out.println("\t Editorial: "
                                     + eElement.getElementsByTagName("editorial").item(0).getTextContent());
-                    System.out.println("\n Precio: " + eElement.getElementsByTagName("precio").item(0).getTextContent());
+                    System.out.println("\t Precio: " + eElement.getElementsByTagName("precio").item(0).getTextContent());
                 } // if
 
             } // for
