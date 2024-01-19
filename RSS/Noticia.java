@@ -66,5 +66,8 @@ public class Noticia {
                 + contenido + ", fecha=" + fecha + ", imagen=" + imagen + ", video=" + video + ", categoria="
                 + categoria + "]";
     }
+    public void setCategoria(String textContent) {
+        categoria.add(textContent);
+    }
     
 }

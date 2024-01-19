@@ -45,38 +45,46 @@ public class Rsscontrolador {
                     if (n.getNodeName().equals("title")) {
                         String titulo = n.getTextContent();
                         noticia.setTitulo(titulo);
-                        System.out.println(titulo);
+                        System.out.println("Titulo " + titulo);
                     }
                     //Si es el del enlace
                     if (n.getNodeName().equals("link")) {
                         String link = n.getTextContent();
                         noticia.setLink(link);
-                        System.out.println(link);
+                        System.out.println("Link " + link);
                     }
                     //Descripcion
                     if (n.getNodeName().equals("description")) {
                         String descripcion = n.getTextContent();
                         noticia.setDescripcion(descripcion);
-                        System.out.println(descripcion);
+                        System.out.println("Descripcion " + descripcion);
                     }
                     //Fecha de publicacion
                     if (n.getNodeName().equals("pubDate")) {
                         String fecha = n.getTextContent();
                         noticia.setFecha(fecha);
-                        System.out.println(fecha);
+                        System.out.println("Fecha " + fecha);
                     }
                     //Contenido
                     if (n.getNodeName().equals("content:encoded")) {
                         String contenido = n.getTextContent();
                         noticia.setContenido(contenido);
-                        System.out.println(contenido);
+                        System.out.println("Contenido " + contenido);
                     }
-                    //Media
+                    //Imagen
                     if (n.getNodeName().equals("media:content")) {
                         //Obtenemos el elemento
                         Element e = (Element)n;
-                        
+                        String atributo = e.getAttribute("url");
+                        //Controlamos que coja solo una imagen
+                        noticia.setImagen(atributo);
                     }
+                    //Categorias
+                    if (n.getNodeName().equals("category")) {
+                        noticia.setCategoria(n.getTextContent());
+                    }
+                    //Metemos cada noticia que hemos leido en la lista
+                    noticias.add(noticia);
                 }
             }
         } catch (Exception e) {
