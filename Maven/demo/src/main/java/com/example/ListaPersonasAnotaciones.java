@@ -2,7 +2,10 @@ package com.example;
 
 import java.util.*;
 
-public class ListaPersonas {
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("ListaPersonasMunicipio")
+public class ListaPersonasAnotaciones {
     private List<Persona> lista = new ArrayList<Persona>();
 
     public List<Persona> getLista() {

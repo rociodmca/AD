@@ -1,17 +1,17 @@
 package com.example;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
+
+import com.thoughtworks.xstream.XStream;
 
 public class Principal {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         // Escribir un fichero binario
         escribirArchivoBinario();
-        ListaPersonas lista = leerArchivoBinario();
+        ListaPersonas listP = leerArchivoBinario();
+        Imprimir(listP);
+        //crearXML(listP);
+        crearXMLAnotaciones(listP);
     }
 
     private static void escribirArchivoBinario() throws IOException {
@@ -45,9 +45,47 @@ public class Principal {
                 System.out.println(persona.toString());
                 listaPer.add(persona);
             }
-        } catch (Exception e) {
-            dataIS.close();
-            return listaPer;
+        } catch (EOFException eof) { 
         }
+        dataIS.close();
+        return listaPer;
+    }
+
+    private static void Imprimir(ListaPersonas listaP) {
+        System.out.println("");
+        for (int i = 0; i < listaP.tam(); i++) {
+            System.out.println("");
+            Persona per = listaP.getPersona(i);
+            System.out.println(per.getNombre() + " " + per.getEdad());
+        }
+    }
+
+    private static void crearXML(ListaPersonas listaImpresion) {
+        try {
+            XStream xstream = new XStream();
+            xstream.alias("ListaPersonasMunicipio", ListaPersonas.class);
+            xstream.alias("DatosPersona", Persona.class);
+
+            xstream.toXML(listaImpresion, new FileOutputStream("./Maven/Personas.xml"));
+            System.out.println("Creando fichero XML...");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void crearXMLAnotaciones(ListaPersonas listaImpresion) {
+        ListaPersonasAnotaciones listaPersonasAnotaciones = new ListaPersonasAnotaciones();
+        for (int i = 0; i < listaImpresion.tam(); i++) {
+            listaPersonasAnotaciones.add(listaImpresion.getPersona(i));
+        }
+        XStream xStream = new XStream();
+        xStream.autodetectAnnotations(true);
+
+        xStream.processAnnotations(ListaPersonasAnotaciones.class);
+        xStream.processAnnotations(PersonaAnotaciones.class);
+
+        String xml = xStream.toXML(listaPersonasAnotaciones);
+
+        System.out.println(xml);
     }
 }

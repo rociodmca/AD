@@ -1,13 +1,17 @@
 package com.example;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 import java.io.Serializable;
 
-public class Persona implements Serializable{
+@XStreamAlias("Personas")
+public class PersonaAnotaciones implements Serializable{
+    @XStreamAlias("nombre")
     private String nombre;
+    @XStreamAlias("edad")
     private int edad;
     private static final long serialVersionUID = 1234567;
 
-    public Persona(String nombre, int edad) {
+    public PersonaAnotaciones(String nombre, int edad) {
         this.nombre = nombre;
         this.edad = edad;
     }
@@ -32,5 +36,4 @@ public class Persona implements Serializable{
     public String toString() {
         return "Persona [nombre=" + nombre + ", edad=" + edad + "]";
     }
-    
 }
