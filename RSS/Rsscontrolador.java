@@ -22,6 +22,7 @@ public class Rsscontrolador {
 
     public List<Noticia> getNoticias(String urinoticias) {
         this.uri = urinoticias;
+        
         // Empieza la lectura DOM
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         ArrayList<Noticia> noticias = new ArrayList<>();
@@ -37,6 +38,7 @@ public class Rsscontrolador {
             //Recorremos todos los nodos hojas de este nodo
             for (int i = 0; i < item.getLength(); i++) {
                 Node nodo = item.item(i);
+                int contadorImagenes = 0; //para cada noticia
 
                 Noticia noticia = new Noticia();
                 //Tendremos que recorrer los hijos de este nodo
@@ -77,7 +79,10 @@ public class Rsscontrolador {
                         Element e = (Element)n;
                         String atributo = e.getAttribute("url");
                         //Controlamos que coja solo una imagen
-                        noticia.setImagen(atributo);
+                        if (contadorImagenes == 0) {
+                            noticia.setImagen(atributo);
+                            contadorImagenes++;
+                        }
                     }
                     //Categorias
                     if (n.getNodeName().equals("category")) {
@@ -88,7 +93,7 @@ public class Rsscontrolador {
                 }
             }
         } catch (Exception e) {
-            // TODO: handle exception
+            e.printStackTrace();
         }
         return noticias;
     }
