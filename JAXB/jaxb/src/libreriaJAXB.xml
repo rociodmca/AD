@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<libreria>
+    <nombre>Libreria de superheroes</nombre>
+    <libros>
+        <libro isbn="258976">
+            <titulo>Soy feo porque el mundo me hizo así</titulo>
+            <autor>Judas</autor>
+        </libro>
+        <libro isbn="741258">
+            <titulo>Me gusta bañarme</titulo>
+            <autor>Flor del bosque</autor>
+        </libro>
+        <libro isbn="789654">
+            <titulo>Déjala correr</titulo>
+            <autor>Agua Pasada</autor>
+        </libro>
+    </libros>
+</libreria>

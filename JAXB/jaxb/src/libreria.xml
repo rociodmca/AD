@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libreria>
+    <nombre>Librería del bar</nombre>
+    <libros>
+        <libro isbn="12345678">
+            <titulo>Dejar de fumar</titulo>
+            <autor>2ª Lápida a la izquierda</autor>
+        </libro>
+        <libro isbn="234567891">
+            <titulo>Dejar de beber</titulo>
+            <autor>El que busca hígado</autor>
+        </libro>
+        <libro isbn="345678912">
+            <titulo>Dejar lo malo de vida</titulo>
+            <autor>El sanador</autor>
+        </libro>
+    </libros>
+</libreria>
