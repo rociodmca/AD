@@ -96,11 +96,11 @@ public class App
         saxParser.parse(file, handler);
 
         //Recogemos la información 
-        ArrayList<Libro> libreriaSAX = handler.getLibrerias();
+        //ArrayList<Libro> libreriaSAX = handler.getLibrerias();
 
         //Imprimiríamos la información
-        for (Libro l : libreriaSAX) {
+        /*for (Libro l : libreriaSAX) {
             System.out.println(l);
-        }
+        }*/
     }
 }

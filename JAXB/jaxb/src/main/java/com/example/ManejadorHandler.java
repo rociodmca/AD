@@ -8,7 +8,7 @@ import org.xml.sax.helpers.DefaultHandler;
 
 //Clase para el manejador de eventos
 public class ManejadorHandler extends DefaultHandler{
-    private ArrayList<Libro> libros = new ArrayList<>();
+    //private ArrayList<Libro> libros = new ArrayList<>();
     //creamos un búfer para leer los elementos que tienen texto
     private StringBuilder buffer = new StringBuilder();
 
@@ -23,8 +23,8 @@ public class ManejadorHandler extends DefaultHandler{
         this.buffer.setLength(0);
 
         if (qName.equals("libro")) {
-            String anio = attributes.getValue("isbn");
-            System.out.println("Atributo isbn: " + anio);
+            String isbn = attributes.getValue("isbn");
+            System.out.println("Atributo isbn: " + isbn);
         }
     }
 
