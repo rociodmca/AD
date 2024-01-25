@@ -15,6 +15,12 @@ public class Libro {
     public Libro() {
     }
 
+    public Libro(String isbn, String titulo, String autor) {
+        this.isbn = isbn;
+        this.titulo = titulo;
+        this.autor = autor;
+    }
+
     @XmlAttribute(name = "isbn")
     public String getIsbn() {
         return isbn;
@@ -38,6 +44,11 @@ public class Libro {
 
     public void setAutor(String autor) {
         this.autor = autor;
+    }
+
+    @Override
+    public String toString() {
+        return "Libro [isbn=" + isbn + ", titulo=" + titulo + ", autor=" + autor + "]";
     }
     
 }

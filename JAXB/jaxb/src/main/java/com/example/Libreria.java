@@ -38,4 +38,9 @@ public class Libreria {
     public void setLibros(ArrayList<Libro> libros) {
         this.libros = libros;
     }
+
+    @Override
+    public String toString() {
+        return "Libreria [nombre=" + nombre + ", libros=" + libros + "]";
+    }
 }

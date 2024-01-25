@@ -89,18 +89,22 @@ public class App
         SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
         SAXParser saxParser = saxParserFactory.newSAXParser();
 
+        System.out.println("");
+
         //Se le pasa un File y se le indica el manejador de eventos
         File file = new File(".//JAXB//jaxb//src//libreriaJAXB.xml");
         ManejadorHandler handler = new ManejadorHandler();
         //Este método dejará un arrayList
         saxParser.parse(file, handler);
 
+        System.out.println("");
+
         //Recogemos la información 
-        //ArrayList<Libro> libreriaSAX = handler.getLibrerias();
+        ArrayList<Libro> libreriaSAX = handler.getLibrerias();
 
         //Imprimiríamos la información
-        /*for (Libro l : libreriaSAX) {
+        for (Libro l : libreriaSAX) {
             System.out.println(l);
-        }*/
+        }
     }
 }
