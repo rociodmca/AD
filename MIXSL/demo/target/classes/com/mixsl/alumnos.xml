@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listadealumnos>
+    <alumno>
+        <nombre>Juan</nombre>
+        <edad>99</edad>
+    </alumno>
+    <alumno>
+        <nombre>Pepe</nombre>
+        <edad>88</edad>
+    </alumno>
+    <alumno>
+        <nombre>Heriberto</nombre>
+        <edad>200</edad>
+    </alumno>
+    <alumno>
+        <nombre>Bartolo</nombre>
+        <edad>75</edad>
+    </alumno>
+</listadealumnos>
