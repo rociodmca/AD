@@ -1,4 +1,4 @@
-package MIXSL.demo.src.main.java.com.mixsl;
+package com.mixsl;
 
 import java.io.File;
 import java.io.FileOutputStream;

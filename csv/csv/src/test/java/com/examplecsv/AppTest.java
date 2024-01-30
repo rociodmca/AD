@@ -1,4 +1,4 @@
-package com.mixsl;
+package com.examplecsv;
 
 import static org.junit.Assert.assertTrue;
 
