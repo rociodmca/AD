@@ -123,7 +123,7 @@ public class EscribirAleatorio {
         System.out.println("Por favor, ingresa un numero: ");
 
         int num = sc.nextInt();
-
+        sc.close();
         return num;
     }
 }

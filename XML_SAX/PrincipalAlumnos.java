@@ -17,7 +17,7 @@ public class PrincipalAlumnos {
             AlumnoHandler handler = new AlumnoHandler();
             parser.parse("./XML_SAX/alumnos.xml", handler);
         } catch (ParserConfigurationException | SAXException | IOException e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         }
     }

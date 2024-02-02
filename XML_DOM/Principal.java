@@ -66,7 +66,7 @@ public class Principal {
             transformer.transform(source, result);
 
         } catch (ParserConfigurationException e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         }
 
@@ -98,7 +98,7 @@ public class Principal {
 
 
         } catch (ParserConfigurationException e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         }
        

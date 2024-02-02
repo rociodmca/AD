@@ -119,7 +119,7 @@ public class PrincipalDOMlibros {
             transformer.transform(source, result);
 
         } catch (ParserConfigurationException e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         }
 
@@ -161,7 +161,7 @@ public class PrincipalDOMlibros {
             } // for
 
         } catch (ParserConfigurationException e) {
-            // TODO Auto-generated catch block
+          
             e.printStackTrace();
         }
 
