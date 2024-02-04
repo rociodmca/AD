@@ -30,8 +30,8 @@ public class App {
         // ejemplo4();
         // ejemplo5();
         // ejemplo6();
-        // ejemplo7();
-        ejemplo8();
+         ejemplo7();
+        //ejemplo8();
     }
 
     private static void ejemplo8() {
@@ -76,11 +76,10 @@ public class App {
 
     private static void ejemplo7() {
 
-        try {
-            // Escritura utilizando un canal
-            // Creamos un archivo y obtenemos el canal para esribir en él
-            FileOutputStream fos = new FileOutputStream(
-                    "JAVANIOMIO\\javanio\\src\\main\\java\\com\\example\\numeritos.bin");
+        // Escritura utilizando un canal
+        // Creamos un archivo y obtenemos el canal para esribir en él
+        try (FileOutputStream fos = new FileOutputStream("JAVANIOMIO\\javanio\\src\\main\\java\\com\\example\\numeritos.bin");){
+            
             FileChannel canal = fos.getChannel();
 
             // Creamos un buffer y ponemos algún numerico

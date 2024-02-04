@@ -1,22 +1,23 @@
 package com.examplecsv;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
+import com.opencsv.exceptions.CsvValidationException;
 
 public class EscribirAleatorio {
-    public static void main(String[] args) throws IOException {
-        
+    public static void main(String[] args) throws IOException, CsvValidationException {
+
         List<Empleado> empleados = new ArrayList<Empleado>();
         List<Empleado> lectura = new ArrayList<Empleado>();
 
@@ -26,59 +27,69 @@ public class EscribirAleatorio {
         leerUnRegistro();
 
         exportarCSV(empleados);
-        //lectura = importarCSV();
-        
+        lectura = importarCSV();
+        for (Empleado empleado : lectura) {
+            System.out.println(empleado);
+        }
+
     }
 
-
-    /*private static List<Empleado> importarCSV() throws FileNotFoundException {
+    private static List<Empleado> importarCSV() throws CsvValidationException, IOException {
         String entradaArchivo = ".//csv//csv//src//main//java//com//examplecsv//empleado.csv";
-        //Vamos a verificar si existe el archivo o no
+        // Vamos a verificar si existe el archivo o no
         boolean existe = new File(entradaArchivo).exists();
+        List<Empleado> empleados = new ArrayList<>();
 
-        if (existe) { //Si existe lo borramos
+        if (existe) { // Si existe lo borramos
             File archivo = new File(entradaArchivo);
             CSVReader entradaCSV = new CSVReader(new FileReader(archivo));
-            String datos[];
-            int linea = 1;
-            try {
-                while (true) {
-                    datos = entradaCSV.readNext().toString().split(";");
-                    Empleado emp = new Empleado(Integer.parseInt(datos[0]), datos[1], Integer.parseInt(datos[2]), Double.parseDouble(datos[3]));
-                    
+            String datos[], linea[];
+            while ((datos = entradaCSV.readNext()) != null) {
+                linea = datos[0].toString().split(";");
+                //System.out.println(datos[0]);
+                if (StringUtils.isNumeric(linea[0])) {
+                    Empleado emp = new Empleado(Integer.parseInt(linea[0]), linea[1].toString(), Integer.parseInt(linea[2]), Double.parseDouble(linea[3]));
+                    empleados.add(emp);
                 }
-            } catch (Exception e) {
-                
+                /*for (String string : datos) {
+                    System.out.println(string + "\t");
+                }
+                System.out.println();*/
             }
+            entradaCSV.close();
         }
-    }*/
+        return empleados;
+    }
 
     private static void exportarCSV(List<Empleado> empleados) {
         String salidaArchivo = ".//csv//csv//src//main//java//com//examplecsv//empleado.csv";
-        //Vamos a verificar si existe el archivo o no
+        // Vamos a verificar si existe el archivo o no
         boolean existe = new File(salidaArchivo).exists();
 
-        if (existe) { //Si existe lo borramos
+        if (existe) { // Si existe lo borramos
             File archivote = new File(salidaArchivo);
             archivote.delete();
         }
-        //Creamos el archivo
+        // Creamos el archivo
         try {
-            CSVWriter salidaCSV = new CSVWriter(new FileWriter(salidaArchivo, true), ';', CSVWriter.NO_QUOTE_CHARACTER, CSVWriter.NO_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
+            CSVWriter salidaCSV = new CSVWriter(new FileWriter(salidaArchivo, true), ';', CSVWriter.NO_QUOTE_CHARACTER,
+                    CSVWriter.NO_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
 
-            //Dato para identificar las cabeceras
-            String cabecera[] = {"id", "Apellidos", "Departamento", "Salario"};
+            // Dato para identificar las cabeceras
+            String cabecera[] = { "id", "Apellidos", "Departamento", "Salario" };
             salidaCSV.writeNext(cabecera);
 
-            //Metemos todos los datos
-            //Recorremos toda la lista
+            // Metemos todos los datos
+            // Recorremos toda la lista
             List<String[]> datos = new ArrayList<String[]>();
             for (Empleado emp : empleados) {
-                //Forma 1 de hacerlo
-                //String dato[] = {Integer.toString(emp.getId()), emp.getApellido(), Integer.toString(emp.getDep()), Double.toString(emp.getSalario())};
-                //salidaCSV.writeNext(dato, false);
-                //Forma 2 de hacerlo
-                datos.add(new String[]{Integer.toString(emp.getId()), emp.getApellido(), Integer.toString(emp.getDep()), Double.toString(emp.getSalario())});
+                // Forma 1 de hacerlo
+                // String dato[] = {Integer.toString(emp.getId()), emp.getApellido(),
+                // Integer.toString(emp.getDep()), Double.toString(emp.getSalario())};
+                // salidaCSV.writeNext(dato, false);
+                // Forma 2 de hacerlo
+                datos.add(new String[] { Integer.toString(emp.getId()), emp.getApellido(),
+                        Integer.toString(emp.getDep()), Double.toString(emp.getSalario()) });
             }
             salidaCSV.writeAll(datos, false);
             salidaCSV.close();
@@ -188,7 +199,8 @@ public class EscribirAleatorio {
             dep = file.readInt();// obtengo dep
             salario = file.readDouble(); // obtengo salario
 
-            System.out.println("ID: " + registro + ", Apellido: " + apellidoS.trim() + ", Departamento: " + dep + ", Salario: " + salario);
+            System.out.println("ID: " + registro + ", Apellido: " + apellidoS.trim() + ", Departamento: " + dep
+                    + ", Salario: " + salario);
         }
         file.close(); // cerrar fichero
 
