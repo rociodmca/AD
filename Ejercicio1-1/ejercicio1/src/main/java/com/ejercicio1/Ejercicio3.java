@@ -32,9 +32,10 @@ public class Ejercicio3 {
                 Element element = (Element) nodo;
                 Element element2 = (Element) nodo2;
                 System.out.println("Ciudad: " + element.getElementsByTagName("nombre").item(0).getTextContent());
-                System.out.println( "Temperatura: " + element.getElementsByTagName("temperatura").item(0).getTextContent());
+                System.out.println("Temperatura: " + element.getElementsByTagName("temperatura").item(0).getTextContent());
                 System.out.println("Presion: " + element.getElementsByTagName("presion").item(0).getTextContent());
-                System.out.println("Nombre: " + element.getElementsByTagName("nombreApe").item(0).getTextContent());
+                //System.out.println("Nombre: " + element.getElementsByTagName("nombreApe").item(0).getTextContent());
+                System.out.println("soy yo en el examen");
                 System.out.println("Apellido: " + element2.getAttribute("apellido"));
                 System.out.println("");
             }
