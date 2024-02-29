@@ -53,7 +53,7 @@ ALTER TABLE llevar ADD PRIMARY KEY (dorsal,netapa,codigo);
 
 
 
-ALTER TABLE Ciclista
+ALTER TABLE ciclista
   ADD CONSTRAINT Cl_1 FOREIGN KEY (nomeq) REFERENCES equipo(nomeq);
 
 
@@ -115,7 +115,7 @@ insert into ciclista values(13,'Gianni Bugno',24,'Gatorade');
 insert into ciclista values(15,'Jesus Montoya',25,'Amore Vita');
 insert into ciclista values(16,'Dimitri Konishev',27,'Amore Vita');
 insert into ciclista values(17,'Bruno Lealli',30,'Amore Vita');
-insert into ciclista values(20,'Alfonso Gutiérrez',27,'Navigare');
+insert into ciclista values(20,'Alfonso GutiÃ©rrez',27,'Navigare');
 insert into ciclista values(22,'Giorgio Furlan',22,'Kelme');
 insert into ciclista values(26,'Mikel Zarrabeitia',30,'Carrera');
 insert into ciclista values(27,'Laurent Jalabert',22,'Banesto');
@@ -131,7 +131,7 @@ insert into ciclista values(35,'Gian Mateo Faluca',34,'TVM');
 insert into etapa values(1,70,'Salamanca','Zamora',1);
 insert into etapa values(2,184,'Calahorra','Burgos',1);
 insert into etapa values(3,150,'Zamora','Almendralejo',10);
-insert into etapa values(4,330,'Córdoba','Granada',3);
+insert into etapa values(4,330,'CÃ³rdoba','Granada',3);
 insert into etapa values(5,150,'Granada','Almeria',9);
 
 
@@ -148,7 +148,7 @@ insert into puerto values('Sierra Nevada',2400,'1',3,5,9);
 
 
 insert into maillot values('MGE','General','Amarillo',1000000);
-insert into maillot values('MMO','Montaña','Blanco y rojo',500000);
+insert into maillot values('MMO','MontaÃ±a','Blanco y rojo',500000);
 insert into maillot values('MMV','Metas volantes','Rojo',400000);
 insert into maillot values('MRE','Regularidad','Verde',300000);
 insert into maillot values('MSE','Sprint especial','Rosa',300000);
