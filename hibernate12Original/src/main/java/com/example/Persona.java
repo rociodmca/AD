@@ -26,8 +26,8 @@ public class Persona implements Serializable{
 
     //Propiedades
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_usuario", nullable = false, unique = true)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id_usuario")
     private int id_usuario;
     @Column(name="nombre")
     private String nombre;
@@ -39,8 +39,8 @@ public class Persona implements Serializable{
     @JoinColumn(name="detalles",referencedColumnName = "id_telefono") //Este es el que marca la existencia o no de Detalles
     private Detalles detalles;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "persona")
-    private List<Animales> animales=new ArrayList<Animales>();
+   @OneToMany(mappedBy = "persona",cascade =  CascadeType.MERGE  ,orphanRemoval = true)
+   private List<Animales> animales=new ArrayList<Animales>();
 
     @ManyToMany(cascade = {CascadeType.MERGE})
     @JoinTable(name="personaFamiliar", joinColumns={@JoinColumn(name="id_persona")}, inverseJoinColumns={@JoinColumn(name="id_familiares")})

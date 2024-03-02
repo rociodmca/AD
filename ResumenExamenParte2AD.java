@@ -118,4 +118,56 @@ public class ResumenExamenParte2AD {
         <version>8.0.30</version>
         </dependency>
      */
+
+
+    //Anotaciones de hibernate
+    /* 
+    @Entity
+    @Table(name = "libro") //ojete en minúscula o mayúscula. Case-sensitive
+    //class
+    Ej1:
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private int id;
+    @Column(name = "titulo")
+    private String titulo;
+    @Column(name = "isbn")
+    private String isbn;
+
+    Ej2:
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private int id;
+    @Column(name = "nombre")
+    private String nombre;
+    @Column(name = "apellido")
+    private String apellido;
+    @Column(name = "edad")
+    private int edad;
+    //@Column(name = "direccion")
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    private DireccionPrincipal direccion;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Libro> libros = new ArrayList<Libro>();
+
+    //Aquí hay una relación de muchos a muchos!!!
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "actores_peliculas", catalog = "db_peliculas", joinColumns = 
+    {@JoinColumn(name = "id_actor", nullable = false, updatable = false)}, 
+    inverseJoinColumns = {@JoinColumn(name = "id_pelicula", nullable = false, updatable = false)})
+
+    //Temporal
+    @Temporal(TemporalType.DATE)
+    @Column(name = "fecha_nacimiento", length = 10)
+
+    //Ojo! Relación 1:N 1 director tiene muchas peliculas
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "director")  //obligatorio mapearlo por ser 1 a n
+    //Aquí va a ir una relación de muchos a uno (pelicula)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_director")
+    */
+
+    ///https://mkyong.com/tutorials/hibernate-tutorials/
 }

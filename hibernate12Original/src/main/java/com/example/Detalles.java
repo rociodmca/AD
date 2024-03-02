@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "detalles") 
 public class Detalles implements Serializable {
-    @Id
+     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id_telefono")
     private int id;

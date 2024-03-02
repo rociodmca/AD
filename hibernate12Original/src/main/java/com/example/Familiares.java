@@ -28,7 +28,7 @@ public class Familiares {
     @Column(name="parentesco")
     private String parentesco;
     
-    @ManyToMany(cascade = {CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.DETACH})
     @JoinTable(name="personaFamiliar", joinColumns={@JoinColumn(name="id_familiares")}, inverseJoinColumns={@JoinColumn(name="id_persona")})
     private List<Persona> persona=new ArrayList<Persona>();
 

@@ -5,22 +5,25 @@
     xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
         https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd" version="3.0">
         
-    <persistence-unit name="Controlador" > <!-- Clase que utilizo para realizar la persistencia-->
+    <persistence-unit name="SanPitoPato" > <!-- Clase que utilizo para realizar la persistencia-->
 
-        <class>com.hibernatepostgresql.Usuario</class>
-        <class>com.hibernatepostgresql.DireccionPrincipal</class>
-        <class>com.hibernatepostgresql.Libro</class>
+        <class>com.example.Persona</class>
+        <class>com.example.Detalles</class>
+        <class>com.example.Animales</class>
+        <class>com.example.Familiares</class>
+
+
 
         <properties>
         <!-- Datos de conexión-->
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/judas" /> 
-            <property name="javax.persistence.jdbc.user" value="postgres" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:33060/judas3" /> 
+            <property name="javax.persistence.jdbc.user" value="root" />
             <property name="javax.persistence.jdbc.password" value="secret" />
-            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
         <!-- Fin Datos de conexión-->
             <property name="hibernate.show_sql" value="true" /> <!-- Mostramos las consultas SQL generadas-->
             <property name="hibernate.format_sql" value="true" /> <!-- -->
-            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" /><!--Dialecto con la q se habla bbdd -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" /><!--Dialecto con la q se habla bbdd -->
             <property name="hibernate.hbm2ddl.auto" value="create"/> <!-- "validate", "update", "create", y "create-drop" -->
         </properties>
         
